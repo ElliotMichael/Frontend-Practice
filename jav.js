@@ -1,4 +1,4 @@
-console.log("Hello")
+//console.log("Hello")
 /*var person = "John";
 var greeting = "Hello"
 console.log(greeting, person)
@@ -484,12 +484,22 @@ class Train{
     getSelf(){
         console.log(this)
     }
+    getPrototype() {
+        var proto = Object.getPrototypeOf(this)
+        console.log(proto)
+    }
 }
-let myFirstTrain = new Train('red', false) //first instance of the Train class.
-console.log(myFirstTrain)
+//let myFirstTrain = new Train('red', false) //first instance of the Train class.
+//console.log(myFirstTrain)
 //new Train syntax builds a new instance of the Train class
 
 //Building more instances of the Train class
-let mySecondTrain = new Train('blue', true)
-let myThirdTrain = new Train('blue', false)
+//let mySecondTrain = new Train('blue', true)
+//let myThirdTrain = new Train('blue', false)
 
+//building a brand new train using the updated train class:
+let train4 = new Train('red', false)
+
+//train4.toggleLights()
+//train4.lightsStatus()
+//train4.getSelf()
