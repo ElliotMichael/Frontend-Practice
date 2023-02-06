@@ -470,7 +470,8 @@ increase(number);
 console.log(number)
 */
 
-class Train{
+/*
+class Train {
     constructor(color, lightsOn) {
         this.color = color
         this.lightsOn = lightsOn
@@ -481,7 +482,7 @@ class Train{
     lightsStatus() {
         console.log('Lights on?', this.lightsOn)
     }
-    getSelf(){
+    getSelf() {
         console.log(this)
     }
     getPrototype() {
@@ -503,3 +504,350 @@ let train4 = new Train('red', false)
 //train4.toggleLights()
 //train4.lightsStatus()
 //train4.getSelf()
+
+
+//An example of how polymorphism can be implemented using classes in javascript.
+class HighSpeedTrain extends Train {
+    constructor(passengers, highSpeedOn, color, lightsOn) {
+        super(color, lightsOn) 
+        //the super keyword can be used to specify what properties gets inherited from the super-class in the sub-class.
+        //in this case, we are chosing to inherit both color and lightsOn.
+        this.passengers = passengers
+        this.highSpeedOn = highSpeedOn
+    }
+    
+    toggleHighSpeed() {
+        this.highSpeedOn = !this.highSpeedOn
+        console.log('High speed status:', this.highSpeedOn)
+    }
+    toggleLights() {
+        super.toggleLights() //this first line is needed to inherit the entire super-class' method.
+        super.lightsStatus()
+        console.log('Lights are 100% operational.')
+    }
+}
+
+let train5 = new Train('yellow', false)
+let highSpeed1 = new HighSpeedTrain(200, false, 'green', false)
+
+train5.toggleLights()
+train5.lightsStatus()
+train5.getPrototype()
+highSpeed1.getPrototype()
+
+*/
+
+/*
+class StationaryBike{
+    constructor(positon, gears) {
+        this.position = position
+        this.gears = gears
+    }
+}
+
+class Treadmill {
+    constructor(position, modes) {
+        this.position = position
+        this.modes = modes
+    }
+}
+
+class Gym {
+    constructor(openHrs, stationaryBikePos, treadmillPos) {
+        this.openHrs = openHrs
+        this.stationaryBikePos = new stationaryBikePos(stationaryBikePos, 8)
+        this.treadmill = new this.Treadmill(treadmillPos, 5)
+    }
+}
+
+let boxingGym = new Gym("7-22", "right corner", "left corner")
+
+console.log(boxingGym.openHrs)
+*/
+
+//Default Parameters.
+
+/*function noDefaultParams(number = 10) {
+    console.log('Result', number *number)
+}
+
+noDefaultParams()//Result: NaN
+*/
+
+/*
+class withDefaultParams {
+    constructor(num1 = 1, num2 = 2, num3 = 3, string1 = "Result:", bool1 = true) {
+        this.num1 = num1
+        this.num2 = num2
+        this.num3 = num3
+        this.string1 = string1
+        this.bool1 = bool1
+    }
+    calculate() {
+        if(this.bool1) {
+            console.log(this.string1, this.num1 + this.num2 + this.num3)
+            return
+        }
+        return "The value of bool1 is incorrect"
+    }
+}
+
+
+let better = new withDefaultParams()
+better.calculate()
+
+*/
+
+/*
+//create an Animal class prototype
+class Animal { //Also known as the base class of Animal
+    constructor(color = 'yellow', energy = 100) {
+        this.color = color
+        this.energy = energy
+    }
+    isActive() {
+        if (this.energy > 0) {
+            this.energy -= 20
+            console.log('Energy is decreasing, curently at:', this.energy)
+        }
+        else if (this.energy <= 0) {
+            this.sleep()
+        }
+    }
+    sleep() {
+        this.energy += 20
+        console.log('Energy is increasing, currently at:', this.energy)
+
+    }
+    getColor() {
+        console.log(this.color)
+    }
+
+
+
+}
+
+class Cat extends Animal {
+    constructor(sound = 'purr', canJumpHigh = true, canClimbTrees = true, color, energy){
+        super(color, energy)
+        this.sound = sound
+        this.canClimbTrees = canClimbTrees
+        this.canJumpHigh = canJumpHigh
+    }
+    makeSound(){
+        console.log(this.sound)
+    }
+}
+
+class Bird extends Animal {
+    constructor(sound = 'chirp', canFly = true, color, energy){
+        super(color, energy)
+        this.sound = sound
+        this.canFly = canFly
+    }
+    makeSound(){
+        console.log(this.sound)
+    }
+}
+
+class HouseCat extends Cat {
+    constructor(houseCatSound = "meow", sound, canJumpHigh, canClimbTrees, color, energy){
+        super(color, energy)
+        this.houseCatSound = houseCatSound
+    }
+    makeSound(option){
+        if (option){
+            super.makeSound()
+        }
+        console.log(this.houseCatSound)
+
+    }
+}
+
+class Tiger extends Cat {
+    constructor(tigerSound = 'Roar!', sound, canJumpHigh, canClimbTrees, color, energy){
+        super(sound, canJumpHigh, canClimbTrees, color, energy)
+        this.tigerSound = tigerSound
+    }
+}
+
+class Parrot extends Bird {
+    constructor(canTalk = false, sound, canFly, color, energy){
+        super(sound, canFly, color, energy)
+        this.canTalk = canTalk
+    }
+    makeSound(option){
+        if(option){
+            super.makeSound()
+        }
+        if(this.canTalk){
+            console.log("I'm a talking parrot!")
+        }
+    }
+}
+
+let polly = new Parrot(true)
+let fiji = new Parrot(false)
+
+polly.makeSound()
+fiji.makeSound()
+
+console.log(polly.color)
+console.log(polly.energy)
+
+polly.isActive() //Energy is decreasing , currently at: 80
+
+let penguin = new Bird("shriek", false, "black and white", 200)
+console.log(penguin)
+
+*/
+
+/*
+class Cake {
+    constructor(lyr) {
+        this.lyr = lyr + 1
+    }
+}
+
+let result = new Cake(1)
+console.log(result.lyr)
+*/
+
+
+/*
+class Animal {
+    constructor(legs) {
+        this.legs = legs;
+    }
+}
+
+class Dog extends Animal {
+    constructor() {
+        super(4);
+    }
+}
+
+var result = new Dog();
+console.log(result.legs);
+*/
+
+/*
+class Animal {
+
+}
+
+class Cat extends Animal {
+  constructor() {
+    super();
+    this.noise = "meow";
+  }
+}
+
+var result = new Animal();
+console.log(result.noise);
+*/
+
+/*
+class Person {
+    sayHello() {
+        console.log("Hello");
+    }
+}
+
+class Friend extends Person {
+    sayHello() {
+        console.log("Hey");
+    }
+}
+
+var result = new Friend();
+result.sayHello();
+
+
+*/
+
+/*
+let clothingItem = {
+    price: 50,
+    color: 'beige',
+    material: 'cotton',
+    season: 'autumn'
+}
+
+for (key of Object.keys(clothingItem)) {
+    console.log(key, ":", clothingItem[key])
+}
+
+console.log(clothingItem[key])
+*/
+
+/*
+const car = {
+    engine: true,
+    steering: true,
+    speed: "slow"
+}
+
+const sportsCar = Object.create(car)
+sportsCar.speed = "fast"
+
+console.log("the sportsCar object: ",sportsCar)
+
+console.log('---for-in is unreliable----')
+for (prop in sportsCar) { //prop is equated to one key at a time.
+    console.log(prop)
+}
+
+console.log("----")
+
+for (prop of Object.keys(sportsCar)) {
+    console.log(prop + ": ", sportsCar[prop])
+}
+
+
+/*
+let greet = "Hello"
+let place = "World"
+console.log(`${greet} ${place}!`)
+
+console.log(`${4+5} stars!`)
+*/
+
+/*
+// Task 1
+var dairy = ['cheese', 'sour cream', 'milk', 'yogurt', 'ice cream', 'milkshake']
+function logDairy() {
+    for (items of dairy) {
+        console.log(items)
+    }
+}
+logDairy()
+
+
+// Task 2
+const animal = {
+    canJump: true
+}
+
+const bird = Object.create(animal)
+
+bird.canFly = true
+bird.hasFeathers = true
+
+function birdCan() {
+    for (prop of Object.keys(bird)) {
+        console.log(prop+': '+bird[prop])
+        
+    }
+}
+birdCan()
+
+// Task 3
+function animalCan(){
+    for (obj in bird)
+    console.log(obj +': '+ bird[obj])
+}
+
+animalCan()
+*/
+//Methods that exist on arrays
