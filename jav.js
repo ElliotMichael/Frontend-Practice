@@ -850,4 +850,104 @@ function animalCan(){
 
 animalCan()
 */
+
+
+/*
 //Methods that exist on arrays
+//the forEach Method
+const fruits = ['kiwi', 'mango', 'apple', 'pear'];
+fruits.forEach(function (fruit, index) {
+    console.log(`${index}. ${fruit}`)
+})
+
+
+
+const veggies = ['onion', 'garlic', 'potato']
+veggies.forEach(function (veggie, index) {
+    console.log(`${index}. ${fruits}`)
+})
+
+console.log("---------")
+//the filter() method
+
+const nums = [0, 10, 20, 30, 40, 50]
+const filteredNums = nums.filter(function (num) {
+    return num > 20;
+})
+
+console.log(filteredNums)
+console.log("------")
+
+
+
+let n = [0,10,20,30,40,50]
+let dividedNumbers= n.map( function(num) {
+    return num / 10
+})
+console.log(dividedNumbers)
+console.log("-----")
+
+//converting an object to an array
+const result = []
+const drone = {
+    speed: 100,
+    color: 'yellow'
+}
+const droneKeys = Object.keys(drone)
+droneKeys.forEach(function(key){
+    result.push(key, drone[key])
+})
+
+console.log(result)
+console.log('------')
+
+
+//A simple illustration of using map
+const numbers = [4, 9, 16, 25];
+const newArr = numbers.map(Math.sqrt)
+console.log(newArr)
+
+let bestBoxers = new Map()
+bestBoxers.set(1, "The champion")
+bestBoxers.set(2, "The Runner-up")
+bestBoxers.set(3, "The third place")
+console.log(bestBoxers.get(2))
+console.log('------')
+
+//Javascript Set()
+//A set is a collection of unique values.
+new Set()
+const repetitiveFruits = ['apple', 'pear','apple','pear','plum','apple']
+const uniqueFruits = new Set(repetitiveFruits)
+console.log(uniqueFruits)
+
+
+*/
+
+//concatenating arrays using the spread operator
+const fruits = ['apple','pear','plum']
+const berries = ['blueberry','strawberry']
+const fruitsAndBerries = [...fruits, ...berries]//concatenates fruits and berries
+console.log(fruitsAndBerries)
+
+//Adding new members to arrays without using the push() method
+let veggies = ['onion', 'parsley']
+veggies = [...veggies, 'carrot', 'beetroot']
+console.log(veggies)
+
+//converting string to array using the spread operator
+const greeting = "Hello"
+const arrayOfChars = [...greeting]
+console.log(arrayOfChars)
+console.log("------")
+
+//Copy either an object or an array into a separate one.
+const  car1 = {
+    speed: 200,
+    color: 'yellow'
+}
+
+const car2 = {...car1}
+car1.speed = 202
+
+console.log(car1.speed, car2.speed)
