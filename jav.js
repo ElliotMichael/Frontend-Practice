@@ -951,3 +951,34 @@ const car2 = {...car1}
 car1.speed = 202
 
 console.log(car1.speed, car2.speed)
+console.log('------')
+
+//an arrary can also be copied into a completely diffrent arrar using the spread operator
+const fruits1 = ['apples', 'banana']
+const fruits2 = [...fruits]
+fruits1.pop()
+console.log(fruits1, 'not', fruits2)
+console.log('------')
+
+let set = new Set()
+set.add(1)
+set.add(2)
+set.add(3)
+set.add(3)
+console.log(set)
+console.log('------')
+
+let obj ={
+    key: 1,
+    value: 4
+}
+
+let output = {...obj}
+output.value -= obj.key
+console.log(output.value)
+console.log('------')
+
+function count(...basket) {
+    console.log(basket.length)
+}
+count(10,6,3,4,8)
